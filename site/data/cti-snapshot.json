@@ -1,0 +1,236 @@
+{
+  "schemaVersion": "1.1.0",
+  "datasetKind": "public",
+  "lastSourceRefreshAt": "2026-11-13T17:53:08.488Z",
+  "refreshCadence": "daily",
+  "populationDescription": "승인된 수동 파일럿: Verified 사건 1건, Tracking 사건 2건, Reference 문서 1건. 전체 보안 뉴스나 전 세계 공격량의 모집단이 아닙니다. 국가·공격자·미확정 관계는 추정하지 않습니다. 수집 커버리지 완결을 선언하지 않습니다.",
+  "intelligenceFeed": {
+    "articles": [
+      {
+        "id": "article-kakao-official-20261112",
+        "title": "카카오워크 서비스 개인정보 유출 관련 안내",
+        "publisher": "카카오엔터프라이즈",
+        "url": "https://kakaoenterprise.com/notice/%EC%B9%B4%EC%B9%B4%EC%98%A4%EC%9B%8C%ED%81%AC-%EC%84%9C%EB%B9%84%EC%8A%A4-%EA%B0%9C%EC%9D%B8%EC%A0%95%EB%B3%B4-%EC%9C%A0%EC%B6%9C-%EA%B4%80%EB%A0%A8-%EC%95%88%EB%82%B4/",
+        "publishedAt": "2026-11-12",
+        "reviewNote": "공식 공지 원문 확인. 발행 시각은 날짜 정밀도만 공개되어 일자로 보존합니다.",
+        "collectedAt": "2026-11-13T17:53:08.488Z",
+        "feedStatus": "Verified",
+        "primaryTopic": "침해사고",
+        "tags": [],
+        "incidentId": "incident-kakao-work-2026"
+      },
+      {
+        "id": "article-douzone-official-20261023",
+        "title": "개인정보 유출 가능성 및 침해사고 공지 (APO 백업서비스)",
+        "publisher": "더존비즈온",
+        "url": "https://www.douzone.com/board/read.jsp?code=notice&id=3508",
+        "publishedAt": "2026-10-23",
+        "reviewNote": "공식 공지 원문 확인. 발행 시각은 날짜 정밀도만 공개되어 일자로 보존합니다.",
+        "collectedAt": "2026-11-13T17:53:08.488Z",
+        "feedStatus": "Tracking",
+        "primaryTopic": "공급망·인프라",
+        "tags": [],
+        "incidentId": "incident-douzone-apo-2026-10-23"
+      },
+      {
+        "id": "article-flybit-followup-20261113",
+        "title": "플라이빗 개인정보 40건 유출 관련 후속 보도",
+        "publisher": "보안뉴스",
+        "url": "https://www.boannews.com/news/articleView.html?idxno=147241",
+        "publishedAt": "2026-11-13",
+        "reviewNote": "보안뉴스 검색 색인 본문 대조. 직접 기사 페이지와 운영사 공지는 확보하지 못했습니다. 인용된 유출 규모·항목은 Tracking이며 다른 그룹웨어 사건과 연결하지 않습니다.",
+        "collectedAt": "2026-11-13T17:53:08.488Z",
+        "feedStatus": "Tracking",
+        "primaryTopic": "침해사고",
+        "tags": [],
+        "incidentId": "incident-flybit-2026-11"
+      },
+      {
+        "id": "article-paloalto-cve-20261111",
+        "title": "CVE-2026-0330 PAN-OS: Authenticated Remote Code Execution in Panorama",
+        "publisher": "Palo Alto Networks",
+        "url": "https://security.paloaltonetworks.com/CVE-2026-0330",
+        "publishedAt": "2026-11-11",
+        "summary": "CVE-2026-0330: Panorama의 PAN-OS에서 네트워크 접근 가능한 인증된 관리자가 root 권한 코드를 실행할 수 있는 취약점 권고입니다. 공급자는 알려진 악의적 악용이 없다고 밝혔습니다. 침해 사건을 의미하지 않습니다.",
+        "reviewNote": "공식 공지 원문 확인. 발행 시각은 날짜 정밀도만 공개되어 일자로 보존합니다.",
+        "collectedAt": "2026-11-13T17:53:08.488Z",
+        "feedStatus": "Reference",
+        "primaryTopic": "취약점",
+        "tags": []
+      }
+    ],
+    "trackingIncidents": [
+      {
+        "id": "incident-douzone-apo-2026-10-23",
+        "title": "더존 APO 백업서비스 개인정보 노출 가능성 (2026-10-23 공지)",
+        "summary": "더존비즈온은 APO 백업서비스 관련 서버에 대한 외부 불법 접근 정황과 개인정보 유출 가능성을 공지했다. 공지는 유출 사실 확정이 아니라고 명시하며 피해 고객사와 정보주체는 특정되지 않았다. 최초 관측 기준: 본 검토에서 확인한 최초 공개 공식 공지일(발생일과 구별).",
+        "status": "Tracking",
+        "firstSeenAt": "2026-10-23",
+        "lastUpdatedAt": "2026-11-13T17:53:08.488Z",
+        "primaryTopic": "공급망·인프라",
+        "tags": [],
+        "severityAssessment": {
+          "level": "Medium",
+          "assessedAt": "2026-11-14T02:42:00+09:00",
+          "rationale": "A service-provider compromise and possible exposure were disclosed, but neither affected customers nor actual exfiltration are confirmed. Provisional assessment only; reassess when the investigation establishes scope.",
+          "assessmentType": "Independent CTI assessment"
+        },
+        "countries": {
+          "affected": [],
+          "targeted": [],
+          "infrastructure": [],
+          "unknown": true
+        },
+        "sourceArticleIds": [
+          "article-douzone-official-20261023"
+        ]
+      },
+      {
+        "id": "incident-flybit-2026-11",
+        "title": "플라이빗 운영사의 다우기술 그룹웨어 경유 개인정보 유출 주장",
+        "summary": "보안뉴스는 운영사가 11월 5일 공지에서 비인가 접근과 일부 고객정보 유출을 확인했다고 전하며, 40명 고객의 성명·주민등록번호·연락처 등이 포함됐다고 보도했다. 직접 공지 원문은 아직 대조하지 못했다. 최초 관측 기준: 보도에 인용된 운영사 인지일이며 직접 공지 대조 전 Tracking.",
+        "status": "Tracking",
+        "firstSeenAt": "2026-11-01",
+        "lastUpdatedAt": "2026-11-13T17:53:08.488Z",
+        "primaryTopic": "침해사고",
+        "tags": [],
+        "severityAssessment": {
+          "level": "Medium",
+          "assessedAt": "2026-11-14T02:42:00+09:00",
+          "rationale": "The report describes 40 affected customers and sensitive identifiers, but the operator's primary notice has not been independently reviewed. Provisional and subject to downgrade or correction.",
+          "assessmentType": "Independent CTI assessment"
+        },
+        "countries": {
+          "affected": [],
+          "targeted": [],
+          "infrastructure": [],
+          "unknown": true
+        },
+        "sourceArticleIds": [
+          "article-flybit-followup-20261113"
+        ]
+      }
+    ]
+  },
+  "verifiedIntelligence": {
+    "incidents": [
+      {
+        "id": "incident-kakao-work-2026",
+        "title": "카카오워크 서비스 제공자 디케이테크인 비인가 접근 및 개인정보 유출",
+        "summary": "카카오엔터프라이즈는 서비스 제공자인 디케이테크인에서 2026-11-09 비정상 접근과 일부 개인정보 유출이 확인됐다고 공지했다. 영향 범위와 추가 유출 여부 조사는 계속 중이다. 최초 관측 기준: 본 검토에서 확인한 최초 공개 공식 공지일(발생일과 구별).",
+        "status": "Verified",
+        "firstSeenAt": "2026-11-12",
+        "occurredOn": "2026-11-09",
+        "lastUpdatedAt": "2026-11-13T17:53:08.488Z",
+        "primaryTopic": "침해사고",
+        "tags": [],
+        "severityAssessment": {
+          "level": "Medium",
+          "assessedAt": "2026-11-14T02:42:00+09:00",
+          "rationale": "Confirmed unauthorized access and some disclosure; disclosed scope remains incomplete, and no verified population count is available. Medium is a provisional public-impact assessment, not an official alert or customer-specific priority.",
+          "assessmentType": "Independent CTI assessment"
+        },
+        "countries": {
+          "affected": [],
+          "targeted": [],
+          "infrastructure": [],
+          "unknown": true
+        },
+        "sourceArticleIds": [
+          "article-kakao-official-20261112"
+        ]
+      }
+    ],
+    "entities": [
+      {
+        "id": "incident-kakao-work-2026",
+        "type": "Incident",
+        "name": "카카오워크 서비스 제공자 디케이테크인 비인가 접근 및 개인정보 유출"
+      }
+    ],
+    "claims": [
+      {
+        "id": "claim-kakao-access",
+        "incidentId": "incident-kakao-work-2026",
+        "statement": "Abnormal external access to the provider's service occurred on 2026-11-09.",
+        "status": "Verified",
+        "reviewedAt": "2026-11-13T17:53:08.488Z",
+        "evidenceArticleIds": [
+          "article-kakao-official-20261112"
+        ]
+      },
+      {
+        "id": "claim-kakao-disclosure",
+        "incidentId": "incident-kakao-work-2026",
+        "statement": "Some user personal data was confirmed as disclosed; complete scope is still under investigation.",
+        "status": "Verified",
+        "reviewedAt": "2026-11-13T17:53:08.488Z",
+        "evidenceArticleIds": [
+          "article-kakao-official-20261112"
+        ]
+      },
+      {
+        "id": "claim-kakao-count",
+        "incidentId": "incident-kakao-work-2026",
+        "statement": "The number of affected users is not established in the reviewed notice.",
+        "status": "Tracking",
+        "reviewedAt": "2026-11-13T17:53:08.488Z",
+        "evidenceArticleIds": [
+          "article-kakao-official-20261112"
+        ]
+      },
+      {
+        "id": "claim-douzone-access",
+        "incidentId": "incident-douzone-apo-2026-10-23",
+        "statement": "The provider identified signs of unlawful external access to an APO backup-service server.",
+        "status": "Verified",
+        "reviewedAt": "2026-11-13T17:53:08.488Z",
+        "evidenceArticleIds": [
+          "article-douzone-official-20261023"
+        ]
+      },
+      {
+        "id": "claim-douzone-data",
+        "incidentId": "incident-douzone-apo-2026-10-23",
+        "statement": "Personal data may have been exposed; the notice does not confirm completed exfiltration or identify affected customers and data subjects.",
+        "status": "Verified",
+        "reviewedAt": "2026-11-13T17:53:08.488Z",
+        "evidenceArticleIds": [
+          "article-douzone-official-20261023"
+        ]
+      },
+      {
+        "id": "claim-douzone-related-notices",
+        "incidentId": "incident-douzone-apo-2026-10-23",
+        "statement": "The Oct 18 Smart A 10 notice and Oct 23 APO backup notice concern the same incident.",
+        "status": "Tracking",
+        "reviewedAt": "2026-11-13T17:53:08.488Z",
+        "evidenceArticleIds": [
+          "article-douzone-official-20261023"
+        ]
+      },
+      {
+        "id": "claim-flybit-disclosure",
+        "incidentId": "incident-flybit-2026-11",
+        "statement": "The operator confirmed disclosure of personal data for 40 customers.",
+        "status": "Tracking",
+        "reviewedAt": "2026-11-13T17:53:08.488Z",
+        "evidenceArticleIds": [
+          "article-flybit-followup-20261113"
+        ]
+      },
+      {
+        "id": "claim-flybit-identity-data",
+        "incidentId": "incident-flybit-2026-11",
+        "statement": "Reported exposed fields include names, resident registration numbers and contact information.",
+        "status": "Tracking",
+        "reviewedAt": "2026-11-13T17:53:08.488Z",
+        "evidenceArticleIds": [
+          "article-flybit-followup-20261113"
+        ]
+      }
+    ],
+    "relationships": []
+  },
+  "generatedAt": "2026-11-13T18:03:11.601Z"
+}

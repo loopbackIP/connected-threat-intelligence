@@ -1,0 +1,65 @@
+name: Publish verified CTI preview
+"on": workflow_dispatch
+permissions: {}
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.sha == vars.APPROVED_RELEASE_COMMIT
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Verify publication bytes
+        shell: python
+        run: |
+          from pathlib import Path
+          import hashlib
+          site = Path("site")
+          expected = {
+            "assets/BriefingExplorer-BSa_1wl_.js": "5910973bc86d2c4cee679432eb25a04da37d7765665e10aec0930df0918648bc",
+            "assets/BriefingExplorer-Dj2dwsLe.css": "9b4ac93d639737c80080c63f6b7bc4c73dd013136c6bc578b3d960697e2d0153",
+            "assets/BriefingRelationshipCanvas-5w1JPhHc.js": "9d8ddc964c62f9e8b3612360979c769a7ac5d96c6bd66ce561810ead2e328315",
+            "assets/ThreatGraph-BOZJx7dr.css": "527127ef6abc4ece2a63c595de1a56b6f913fc4be4ee95db000d4419faeded47",
+            "assets/ThreatGraph-cjrKjN9X.js": "5a153101714b3a3c3eda32efbdca8d03d4fad283194843f5270292f4bc323799",
+            "assets/cytoscape.esm-nTrd5EVq.js": "6f59a93d9559cc2099714514668ced4eed55a971ce973193339c39be9327ee2f",
+            "assets/index-BKq9SmHj.css": "d99b1a4b1dc420ba36edc3fdcf5f22f1bb9905516b89350639c780b663ba8ecd",
+            "assets/index-Cb0HI_Qq.js": "3dc831d65b1dc90aed7c8461f3e44c77bd5025895ffccb76d520c8a350007031",
+            "data/briefing-publication.json": "404b17004f5546af33434a2a3450715bfbcddb4c97dc9202836028ecf3cb6470",
+            "data/cti-snapshot.json": "54700456edb98a3322ec0ca9704bbf508b086f927cf3fa70ec5c8b6254993d3e",
+            "favicon.svg": "61bc9a161de58248288e6905425d7180f0624c2865007b97d763fdac12043a66",
+            "icons.svg": "b45fa506195cfcdef406ba9f0c77b36ddc1a7c224040926ec70abc2fdea7b93a",
+            "index.html": "ca6d315a100aa607724a66d67a308ef7eab9d2b32b7b10235d768f20889174ea",
+            "maps/SOURCE.md": "71c6a3f238fa6e96ab62f280c11c3205135504ef8ba97896a4f5902000fc5b8c",
+            "maps/countries.geojson": "e27bdf9bd73a0f0db995842510e97fa549cb0ef4093be4dd24a81b284cbeed08"
+          }
+          if site.is_symlink() or not site.is_dir():
+              raise SystemExit("Invalid site root")
+          paths = list(site.rglob("*"))
+          if any(p.is_symlink() for p in paths):
+              raise SystemExit("Linked file")
+          actual = {p.relative_to(site).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest() for p in paths if p.is_file()}
+          if actual != expected:
+              raise SystemExit("Release inventory mismatch")
+          print("Verified all 15 release files")
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+  deploy:
+    needs: package
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.publication.outputs.page_url }}
+    steps:
+      - name: Publish verified artifact
+        id: publication
+        uses: actions/deploy-pages@v4
